@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+<<<<<<< HEAD
 const ACCELERATION = 400
+=======
+const ACCELERATION = 600
+>>>>>>> origin/main
 const MAX_SPEED = 100
 const FRICTION = 500
 

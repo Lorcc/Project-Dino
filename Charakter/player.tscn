@@ -1,16 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg43ciwg08lt8"]
 
 [ext_resource type="Script" path="res://Charakter/player.gd" id="1_0xn0i"]
-[ext_resource type="Texture2D" uid="uid://bpxkskc3pw7ff" path="res://icon.svg" id="2_3cmx4"]
+[ext_resource type="Texture2D" uid="uid://bg0bp11y61a0x" path="res://Heartbeast_Resources/Player/Player.png" id="2_iuvyp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bidrs"]
-radius = 61.5224
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_unwqh"]
+radius = 4.0
+height = 12.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0xn0i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3cmx4")
+texture = ExtResource("2_iuvyp")
+hframes = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_bidrs")
+position = Vector2(0, 8)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_unwqh")

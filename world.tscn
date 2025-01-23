@@ -5,4 +5,9 @@
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_su8t1")]
-position = Vector2(571, 314)
+position = Vector2(168, 92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 0, 120, 0, 112, 32, 32, 80, 56, 120, 48, 160, 112, 152, 160, 168, 192, 184, 216, 160, 224, 152, 248, 160, 288, 176, 264, 120, 280, 104, 288, 80, 288, 48, 272, 24, 184, 24, 120, 0, 320, 0, 320, 192, 0, 192)

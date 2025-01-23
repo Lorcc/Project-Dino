@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1ky3dhckg7u8"
+path="res://.godot/imported/Music.mp3-443a576beb6422b00e55e1a75c7a5d72.mp3str"
+
+[deps]
+
+source_file="res://Heartbeast_Resources/Music and Sounds/Music.mp3"
+dest_files=["res://.godot/imported/Music.mp3-443a576beb6422b00e55e1a75c7a5d72.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

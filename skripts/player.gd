@@ -8,6 +8,8 @@ const FRICTION = 500
 const SPEED = 100.0
 var current_dir = "none"
 
+#if there are questions how the animationtree functions look here
+#https://www.youtube.com/watch?v=Z9aR9IiiHT8&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a&index=6
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var animation_state = animation_tree.get("parameters/playback")

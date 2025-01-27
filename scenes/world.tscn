@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=4 uid="uid://bcx3sgxh5lf51"]
 
-[ext_resource type="Texture2D" uid="uid://cd8bfetvbhwux" path="res://art/tilesets/plains.png" id="1_vjra0"]
-[ext_resource type="Texture2D" uid="uid://bsvx4cc67wjm6" path="res://art/tilesets/grass.png" id="2_srbnu"]
-[ext_resource type="Texture2D" uid="uid://bteihoy8j4l8l" path="res://art/objects/objects.png" id="3_j2rh4"]
-[ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_ytplo"]
+[ext_resource type="Texture2D" uid="uid://cd8bfetvbhwux" path="res://art/tilesets/plains.png" id="1_b3auu"]
+[ext_resource type="Texture2D" uid="uid://bsvx4cc67wjm6" path="res://art/tilesets/grass.png" id="2_28dg7"]
+[ext_resource type="Texture2D" uid="uid://bteihoy8j4l8l" path="res://art/objects/objects.png" id="3_v62l8"]
+[ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_2h0x8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nod18"]
-texture = ExtResource("1_vjra0")
+texture = ExtResource("1_b3auu")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -58,11 +58,11 @@ texture = ExtResource("1_vjra0")
 3:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fpy07"]
-texture = ExtResource("2_srbnu")
+texture = ExtResource("2_28dg7")
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lqwbo"]
-texture = ExtResource("3_j2rh4")
+texture = ExtResource("3_v62l8")
 0:5/size_in_atlas = Vector2i(3, 4)
 0:5/0 = 0
 0:5/0/y_sort_origin = 7
@@ -96,5 +96,5 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAADAAIAAgAAAAUAAAAMAAMAAgAAAAUAAAADAAwAAgAAAAUAAAAMAAwAAgAAAAUAAAAIAAcAAgAAAAAAAAAFAAcAAgAAAAEAAAA=")
 tile_set = SubResource("TileSet_of1la")
 
-[node name="player" parent="." instance=ExtResource("4_ytplo")]
+[node name="player" parent="." instance=ExtResource("4_2h0x8")]
 position = Vector2(129, 145)

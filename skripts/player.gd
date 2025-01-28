@@ -2,11 +2,8 @@ extends CharacterBody2D
 
 const ACCELERATION = 450
 const MAX_SPEED = 100
-const FRICTION = 500
+const FRICTION = 600
 #const WORLD = preload("res://scenes/world.tscn")
-
-const SPEED = 100.0
-var current_dir = "none"
 
 #if there are questions how the animationtree functions look here
 #https://www.youtube.com/watch?v=Z9aR9IiiHT8&list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a&index=6

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://bcx3sgxh5lf51"]
+[gd_scene load_steps=5 format=4 uid="uid://bcx3sgxh5lf51"]
 
 [ext_resource type="TileSet" uid="uid://b7qiejni0qax6" path="res://scenes/tileset.tres" id="1_v7mrc"]
+[ext_resource type="PackedScene" uid="uid://cpi6clgh8ey2x" path="res://scenes/camera_2d.tscn" id="2_ejplv"]
 [ext_resource type="PackedScene" uid="uid://b76awvvudq1s3" path="res://scenes/level_changer.tscn" id="3_d0c05"]
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_2h0x8"]
 
@@ -20,9 +21,23 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAADAAIAAgAAAAUAAAAMAAMAAgAAAAUAAAADAAwAAgAAAAUAAAAMAAwAAgAAAAUAAAAIAAcAAgAAAAAAAAAFAAcAAgAAAAEAAAA=")
 tile_set = ExtResource("1_v7mrc")
 
+[node name="Camera2D" parent="." instance=ExtResource("2_ejplv")]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="BottomRight" parent="Camera2D/Limits" index="1"]
+position = Vector2(256, 256)
+
 [node name="player" parent="." instance=ExtResource("4_2h0x8")]
 position = Vector2(129, 145)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="LevelChanger" parent="." instance=ExtResource("3_d0c05")]
 position = Vector2(128, 260)
 world_scene = "res://scenes/world_2.tscn"
+
+[editable path="Camera2D"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpi6clgh8ey2x"]
+
+[ext_resource type="Script" path="res://skripts/camera_2d.gd" id="1_6h135"]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(129, 145)
+script = ExtResource("1_6h135")
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="TopLeft" type="Marker2D" parent="Limits"]
+
+[node name="BottomRight" type="Marker2D" parent="Limits"]

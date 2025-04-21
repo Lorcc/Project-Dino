@@ -28,3 +28,6 @@ func get_input(delta):
 	else:
 		animation_state.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO,FRICTION * delta)
+
+func player_spawn(pos):
+	position = pos

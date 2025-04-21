@@ -36,5 +36,6 @@ remote_path = NodePath("../../Camera2D")
 [node name="LevelChanger" parent="." instance=ExtResource("3_x5lum")]
 position = Vector2(128, 0)
 world_scene = "res://scenes/world.tscn"
+player_future_position = Vector2(128, 248)
 
 [editable path="Camera2D"]

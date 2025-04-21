@@ -28,6 +28,7 @@ func _deferred_goto_scene(path, player_pos):
 	# Instance the new scene.
 	current_scene = s.instantiate()
 	
+	# Set player position in new scene.
 	current_scene.find_child("player").player_spawn(player_pos)
 	
 	# Add it to the active scene, as child of root.

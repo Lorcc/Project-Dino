@@ -254,6 +254,7 @@ y_sort_enabled = true
 script = ExtResource("1_752sw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -16)
 texture = ExtResource("2_x0qi3")
 flip_h = true

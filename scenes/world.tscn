@@ -41,5 +41,6 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(128, 264)
 world_scene = "res://scenes/world_2.tscn"
 player_future_position = Vector2(128, 16)
+collision_size = Vector2(128, 20)
 
 [editable path="Camera2D"]

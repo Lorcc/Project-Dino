@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://cvj6ueacyuxqm"]
+[gd_scene load_steps=6 format=4 uid="uid://cvj6ueacyuxqm"]
 
 [ext_resource type="TileSet" uid="uid://b7qiejni0qax6" path="res://scenes/tileset.tres" id="1_c6h87"]
 [ext_resource type="PackedScene" uid="uid://cpi6clgh8ey2x" path="res://scenes/camera_2d.tscn" id="2_2vt6m"]
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="2_javd7"]
 [ext_resource type="PackedScene" uid="uid://b76awvvudq1s3" path="res://scenes/level_changer.tscn" id="3_x5lum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtbj7"]
 
 [node name="world2" type="Node2D"]
 y_sort_enabled = true
@@ -39,6 +41,9 @@ remote_path = NodePath("../../Camera2D")
 position = Vector2(128, -8)
 world_scene = "res://scenes/world.tscn"
 player_future_position = Vector2(128, 248)
-collision_size = Vector2(128, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChanger"]
+scale = Vector2(3.36, 1)
+shape = SubResource("RectangleShape2D_rtbj7")
 
 [editable path="Camera2D"]

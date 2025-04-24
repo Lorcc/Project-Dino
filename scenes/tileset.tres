@@ -77,7 +77,7 @@ texture = ExtResource("1_xh1qc")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fpy07"]
 texture = ExtResource("2_12iam")
 0:0/0 = 0
-0:0/0/y_sort_origin = -100
+0:0/0/y_sort_origin = -1000
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lqwbo"]
 texture = ExtResource("3_8qao4")

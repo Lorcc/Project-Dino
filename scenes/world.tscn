@@ -1,11 +1,19 @@
-[gd_scene load_steps=6 format=4 uid="uid://bcx3sgxh5lf51"]
+[gd_scene load_steps=13 format=4 uid="uid://bcx3sgxh5lf51"]
 
 [ext_resource type="TileSet" uid="uid://b7qiejni0qax6" path="res://scenes/tileset.tres" id="1_v7mrc"]
 [ext_resource type="PackedScene" uid="uid://cpi6clgh8ey2x" path="res://scenes/camera_2d.tscn" id="2_ejplv"]
 [ext_resource type="PackedScene" uid="uid://b76awvvudq1s3" path="res://scenes/level_changer.tscn" id="3_d0c05"]
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_2h0x8"]
+[ext_resource type="Script" path="res://skripts/enemy.gd" id="5_5eryv"]
+[ext_resource type="Texture2D" uid="uid://bdfvjphrat48e" path="res://art/icon.svg" id="6_c613w"]
+[ext_resource type="Texture2D" uid="uid://i3wbor5i4typ" path="res://art/objects/rock_in_water_05.png" id="7_3a4ae"]
+[ext_resource type="Script" path="res://skripts/battle_scene.gd" id="7_lnq2f"]
+[ext_resource type="Texture2D" uid="uid://c8y3w120ky4vs" path="res://art/dino/Allosaurus-Back.png" id="8_r1ixw"]
+[ext_resource type="Texture2D" uid="uid://c2x4aybp2e21g" path="res://art/dino/Allosaurus-Front.png" id="9_jgsjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puwqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4ljg"]
 
 [node name="world" type="Node2D"]
 y_sort_enabled = true
@@ -52,5 +60,72 @@ player_future_position = Vector2(128, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChanger"]
 scale = Vector2(4.04399, 1)
 shape = SubResource("RectangleShape2D_puwqa")
+
+[node name="enemy" type="Area2D" parent="."]
+position = Vector2(24, 80)
+script = ExtResource("5_5eryv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("RectangleShape2D_j4ljg")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_c613w")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="battle_scene" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("7_lnq2f")
+
+[node name="background" type="TextureRect" parent="CanvasLayer/battle_scene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_3a4ae")
+
+[node name="player_sprite" type="Sprite2D" parent="CanvasLayer/battle_scene/background"]
+position = Vector2(34, 144)
+texture = ExtResource("8_r1ixw")
+
+[node name="enemy_sprite" type="Sprite2D" parent="CanvasLayer/battle_scene/background"]
+position = Vector2(288, 32)
+texture = ExtResource("9_jgsjs")
+flip_h = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/battle_scene/background"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 136.0
+offset_right = 312.0
+offset_bottom = 176.0
+
+[node name="Run_Button" type="Button" parent="CanvasLayer/battle_scene/background/Panel"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 178.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 22
+text = "Run"
+
+[node name="Label" type="Label" parent="CanvasLayer/battle_scene/background/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 102.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 12
+text = "A wild Alo appears"
+autowrap_mode = 2
+
+[connection signal="body_entered" from="enemy" to="enemy" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/battle_scene/background/Panel/Run_Button" to="CanvasLayer/battle_scene" method="_on_run_button_pressed"]
 
 [editable path="Camera2D"]

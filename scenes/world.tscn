@@ -129,6 +129,7 @@ texture = ExtResource("6_c613w")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 2
 
 [node name="battle_scene" type="Control" parent="CanvasLayer"]
 layout_mode = 3

@@ -11,7 +11,7 @@ func _ready() -> void:
 func init(character_name, lvl):
 	visible = true
 	$AnimationPlayer.play("fade_in")
-	#get_tree().paused = true
+	get_tree().paused = true
 	$background/Panel/Label.text = "A wild %s lvl %s appears" %[character_name, lvl]
 
 

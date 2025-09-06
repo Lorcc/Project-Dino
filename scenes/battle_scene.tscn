@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://flyboecmmxc0"]
+[gd_scene load_steps=14 format=3 uid="uid://flyboecmmxc0"]
 
 [ext_resource type="Script" path="res://skripts/battle_scene.gd" id="1_vhiso"]
 [ext_resource type="Texture2D" uid="uid://i3wbor5i4typ" path="res://art/objects/rock_in_water_05.png" id="2_ep3xs"]
 [ext_resource type="FontVariation" uid="uid://dsaxkd35sl6ia" path="res://art/font/NES.tres" id="3_10k4m"]
 [ext_resource type="Texture2D" uid="uid://c2x4aybp2e21g" path="res://art/dino/Allosaurus-Front.png" id="3_leajk"]
-[ext_resource type="Texture2D" uid="uid://c8y3w120ky4vs" path="res://art/dino/Allosaurus-Back.png" id="4_hw3uu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df5ng"]
 bg_color = Color(1, 0.0407818, 0.0203724, 1)
@@ -29,6 +28,11 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urwlj"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_o1e0l"]
 length = 0.001
@@ -174,10 +178,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="background/EnemyContainer"]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 10
-size_flags_vertical = 8
+size_flags_vertical = 4
 texture = ExtResource("3_leajk")
 flip_h = true
 
@@ -187,16 +191,29 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -77.0
+offset_top = -78.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PlayerPanel" type="Panel" parent="background/PlayerContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="background/PlayerContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Player" type="TextureRect" parent="background/PlayerContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("3_leajk")
+
+[node name="PlayerPanel" type="Panel" parent="background/PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
-[node name="PlayerData" type="VBoxContainer" parent="background/PlayerContainer/PlayerPanel"]
+[node name="PlayerData" type="VBoxContainer" parent="background/PlayerContainer/HBoxContainer/PlayerPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,14 +228,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="PlayerName" type="Label" parent="background/PlayerContainer/PlayerPanel/PlayerData"]
+[node name="PlayerName" type="Label" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("3_10k4m")
 text = "Alosaurus"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="background/PlayerContainer/PlayerPanel/PlayerData"]
+[node name="ProgressBar" type="ProgressBar" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
 custom_minimum_size = Vector2(100, 15)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -229,7 +246,7 @@ step = 0.1
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="background/PlayerContainer/PlayerPanel/PlayerData/ProgressBar"]
+[node name="Label" type="Label" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -245,6 +262,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ActionsPanel" type="Panel" parent="background/PlayerContainer"]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2r3i")
@@ -254,17 +272,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 3
 alignment = 1
 
-[node name="Run_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_10k4m")
-text = "Run"
-
-[node name="Fight_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+[node name="Attack_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -275,11 +292,33 @@ theme_override_fonts/font = ExtResource("3_10k4m")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_31m8g")
 theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
-text = "Fight"
+text = "Attack"
 
-[node name="player_sprite" type="Sprite2D" parent="background"]
-position = Vector2(34, 104)
-texture = ExtResource("4_hw3uu")
+[node name="Defend_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_10k4m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_31m8g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
+text = "Defend"
+
+[node name="Run_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_10k4m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_31m8g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
+text = "Run"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -296,6 +335,7 @@ libraries = {
 "": SubResource("AnimationLibrary_h23oh")
 }
 
+[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Attack_Button" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Defend_Button" to="." method="_on_fight_button_pressed"]
 [connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Run_Button" to="." method="_on_run_button_pressed"]
-[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Fight_Button" to="." method="_on_fight_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

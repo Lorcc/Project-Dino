@@ -62,7 +62,7 @@ scale = Vector2(4.04399, 1)
 shape = SubResource("RectangleShape2D_puwqa")
 
 [node name="enemy" type="Area2D" parent="."]
-position = Vector2(24, 80)
+position = Vector2(24, 120)
 script = ExtResource("5_5eryv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
@@ -77,11 +77,17 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="battle_scene" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 180.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("7_lnq2f")
+metadata/_edit_group_ = true
 
 [node name="background" type="TextureRect" parent="CanvasLayer/battle_scene"]
 layout_mode = 1

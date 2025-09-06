@@ -130,14 +130,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="background/EnemyContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 
-[node name="Panel" type="Panel" parent="background/EnemyContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="EnemyPanel" type="Panel" parent="background/EnemyContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 35)
 layout_mode = 2
-size_flags_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="background/EnemyContainer/VBoxContainer/Panel"]
+[node name="EnemyData" type="VBoxContainer" parent="background/EnemyContainer/VBoxContainer/EnemyPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,32 +146,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = -21.0
+offset_top = -17.5
 offset_right = 50.0
-offset_bottom = 21.0
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Enemy_name" type="Label" parent="background/EnemyContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="EnemyName" type="Label" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_10k4m")
 text = "Alosaurus"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="background/EnemyContainer/VBoxContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 15)
+[node name="ProgressBar" type="ProgressBar" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
+custom_minimum_size = Vector2(100, 11)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 1
+size_flags_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_df5ng")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k1fmv")
 step = 0.1
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="background/EnemyContainer/VBoxContainer/Panel/VBoxContainer/ProgressBar"]
+[node name="Label" type="Label" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -199,7 +201,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -78.0
+offset_top = -108.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -207,6 +209,7 @@ grow_vertical = 0
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="Player" type="TextureRect" parent="background/PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
@@ -216,7 +219,7 @@ size_flags_vertical = 4
 texture = ExtResource("3_leajk")
 
 [node name="PlayerPanel" type="Panel" parent="background/PlayerContainer/HBoxContainer"]
-custom_minimum_size = Vector2(140, 50)
+custom_minimum_size = Vector2(130, 35)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
@@ -229,25 +232,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = -21.0
+offset_top = -17.5
 offset_right = 50.0
-offset_bottom = 21.0
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="PlayerName" type="Label" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_10k4m")
 text = "Alosaurus"
 horizontal_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
-custom_minimum_size = Vector2(100, 15)
+custom_minimum_size = Vector2(100, 11)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 1
+size_flags_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_df5ng")
 theme_override_styles/fill = SubResource("StyleBoxFlat_k1fmv")
 step = 0.1

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_2h0x8"]
 [ext_resource type="Script" path="res://skripts/enemy.gd" id="5_5eryv"]
 [ext_resource type="Texture2D" uid="uid://bdfvjphrat48e" path="res://art/icon.svg" id="6_c613w"]
-[ext_resource type="PackedScene" uid="uid://flyboecmmxc0" path="res://scenes/battle_scene.tscn" id="7_vb4nl"]
+[ext_resource type="PackedScene" uid="uid://flyboecmmxc0" path="res://scenes/battle_scene_old.tscn" id="7_vb4nl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puwqa"]
 

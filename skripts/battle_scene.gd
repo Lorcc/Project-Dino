@@ -1,18 +1,32 @@
 extends Control
 
+signal textbox_closed
+
+@onready var textbox = $background/TextBox
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	textbox.hide()
 	visible = false
 	$background.visible = false
 	EventHandler.connect("battle_started", init)
 	
 
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		textbox.hide()
+		emit_signal("textbox_closed")
+
+func display_text(text):
+	textbox.show()
+	$background/TextBox/Label.text = text
+
 func init(character_name, lvl):
 	visible = true
 	$AnimationPlayer.play("fade_in")
 	get_tree().paused = true
-	#$background/Panel/Label.text = "A wild %s lvl %s appears" %[character_name, lvl]
+	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

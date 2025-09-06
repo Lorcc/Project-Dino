@@ -12,14 +12,14 @@ func init(character_name, lvl):
 	visible = true
 	$AnimationPlayer.play("fade_in")
 	get_tree().paused = true
-	$background/Panel/Label.text = "A wild %s lvl %s appears" %[character_name, lvl]
+	#$background/Panel/Label.text = "A wild %s lvl %s appears" %[character_name, lvl]
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
 		$AnimationPlayer.play("fade_out")
 		$background.visible = true
-		$background/Panel/Fight_Button.grab_focus()
+		#$background/Panel/Fight_Button.grab_focus()
 
 func _on_run_button_pressed() -> void:
 	print("hello")
@@ -28,4 +28,5 @@ func _on_run_button_pressed() -> void:
 	$background.visible = false
 
 func _on_fight_button_pressed() -> void:
-	$background/Panel/Label.text = "You can't fight!!"
+	#$background/Panel/Label.text = "You can't fight!!"
+	pass

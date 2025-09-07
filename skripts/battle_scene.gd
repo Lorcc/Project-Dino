@@ -2,13 +2,16 @@ extends Control
 
 signal textbox_closed
 
+@export var enemy : Resource = null
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, enemy.health, enemy.health)
+	set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
+	$EnemyContainer/Enemy.texture = enemy.texture
 	
+	visible = false
 	$TextBox.hide()
 	$PlayerContainer.hide()
-	visible = false
 	
 	EventHandler.connect("battle_started", init)
 	
@@ -18,7 +21,7 @@ func _ready() -> void:
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
 	progress_bar.max_value = max_health
-	progress_bar.get_node("Label").text = "HP:%d/%d" % [health, max_health]
+	progress_bar.get_node("Label").text = "HP: %d/%d" % [health, max_health]
 
 
 func _input(event):

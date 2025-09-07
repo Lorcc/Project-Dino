@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://37g0ovh1sf12"]
+
+[ext_resource type="Script" path="res://skripts/base_enemy.gd" id="1_r138a"]
+[ext_resource type="Texture2D" uid="uid://c2x4aybp2e21g" path="res://art/dino/Allosaurus-Front.png" id="2_u5tn7"]
+
+[resource]
+script = ExtResource("1_r138a")
+name = "Alosaurus"
+texture = ExtResource("2_u5tn7")
+health = 45
+damage = 15

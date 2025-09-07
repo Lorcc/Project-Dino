@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://flyboecmmxc0"]
+[gd_scene load_steps=16 format=3 uid="uid://flyboecmmxc0"]
 
 [ext_resource type="Script" path="res://skripts/battle_scene.gd" id="1_vhiso"]
 [ext_resource type="Texture2D" uid="uid://i3wbor5i4typ" path="res://art/objects/rock_in_water_05.png" id="2_ep3xs"]
+[ext_resource type="Resource" uid="uid://37g0ovh1sf12" path="res://skripts/resource/alosaurus.tres" id="2_vncvw"]
 [ext_resource type="FontVariation" uid="uid://dsaxkd35sl6ia" path="res://art/font/NES.tres" id="3_10k4m"]
 [ext_resource type="Texture2D" uid="uid://c2x4aybp2e21g" path="res://art/dino/Allosaurus-Front.png" id="3_leajk"]
 
@@ -250,6 +251,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_vhiso")
+enemy = ExtResource("2_vncvw")
 metadata/_edit_group_ = true
 
 [node name="background" type="TextureRect" parent="."]

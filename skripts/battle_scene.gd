@@ -4,10 +4,16 @@ signal textbox_closed
 
 @export var enemy : Resource = null
 
+var current_player_health = 0
+var current_enemy_health = 0
+
 func _ready() -> void:
 	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
+	
+	current_player_health = State.current_health
+	current_enemy_health = enemy.health
 	
 	visible = false
 	$TextBox.hide()
@@ -39,6 +45,8 @@ func init(character_name, lvl):
 	get_tree().paused = true
 	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 
 
+func enemy_turn():
+	pass
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
@@ -53,5 +61,14 @@ func _on_run_button_pressed() -> void:
 	visible = false
 
 
-func _on_fight_button_pressed() -> void:
-	pass
+func _on_attack_button_pressed() -> void:
+	display_text("Your alosaurus charges forward and bites the enemy!")
+	await textbox_closed
+	
+	current_enemy_health = max(0, current_enemy_health - State.damage)
+	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, current_enemy_health, enemy.health)
+	
+	$AnimationPlayer.play("enemy_damaged")
+	await "animation_finished"
+	
+	enemy_turn()

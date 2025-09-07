@@ -8,12 +8,11 @@ var current_player_health: int = 0
 var current_enemy_health: int = 0
 var is_defending = false
 
-#TODO 	change UI so you cant accidentaly press the next move
 #TODO 	change enemy selection
 #TODO 	change player name 
 #TODO 	add Level
 
-func _ready() -> void:	
+func _ready() -> void:
 	visible = false
 	$TextBox.hide()
 	$PlayerContainer.hide()
@@ -32,11 +31,13 @@ func set_health(progress_bar, health, max_health):
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$TextBox.hide()
+		$PlayerContainer/ActionsPanel.show()
 		emit_signal("textbox_closed")
 
 func display_text(text):
 	$TextBox.show()
 	$TextBox/Label.text = text
+
 
 func init(character_name, lvl):
 	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, enemy.health, enemy.health)
@@ -51,7 +52,7 @@ func init(character_name, lvl):
 	$AnimationPlayer.play("fade_in")
 	get_tree().paused = true
 	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 
-	#$AnimationPlayer.play("text_blinking")
+	
 
 func enemy_turn():
 	display_text("The %s launches at your alosaurus fiercely!" % enemy.name)
@@ -67,6 +68,9 @@ func enemy_turn():
 		
 		$AnimationPlayer.play("player_damaged")
 		await $AnimationPlayer.animation_finished
+	
+	for x in $PlayerContainer/ActionsPanel/Actions.get_children():
+		x.disabled = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -84,6 +88,9 @@ func _on_run_button_pressed() -> void:
 
 
 func _on_attack_button_pressed() -> void:
+	for x in $PlayerContainer/ActionsPanel/Actions.get_children():
+		x.disabled = true
+	
 	display_text("Your alosaurus charges forward and bites the enemy!")
 	await textbox_closed
 	
@@ -108,6 +115,9 @@ func _on_attack_button_pressed() -> void:
 
 
 func _on_defend_button_pressed() -> void:
+	for x in $PlayerContainer/ActionsPanel/Actions.get_children():
+		x.disabled = true
+	
 	is_defending = true
 	
 	display_text("Your alosaurus positions itself defensively!")

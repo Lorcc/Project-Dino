@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://flyboecmmxc0"]
+[gd_scene load_steps=19 format=3 uid="uid://flyboecmmxc0"]
 
 [ext_resource type="Script" path="res://skripts/battle_scene.gd" id="1_vhiso"]
 [ext_resource type="Texture2D" uid="uid://i3wbor5i4typ" path="res://art/objects/rock_in_water_05.png" id="2_ep3xs"]
+[ext_resource type="Resource" uid="uid://37g0ovh1sf12" path="res://skripts/resource/alosaurus.tres" id="2_vncvw"]
 [ext_resource type="FontVariation" uid="uid://dsaxkd35sl6ia" path="res://art/font/NES.tres" id="3_10k4m"]
 [ext_resource type="Texture2D" uid="uid://c2x4aybp2e21g" path="res://art/dino/Allosaurus-Front.png" id="3_leajk"]
 
@@ -56,6 +57,78 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerContainer/HBoxContainer/Player:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q6o21"]
 resource_name = "fade_in"
@@ -71,6 +144,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xdxko"]
@@ -88,12 +209,111 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextBox:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mm33b"]
+resource_name = "enemy_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_owrqy"]
+resource_name = "player_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerContainer/HBoxContainer/Player:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ju7ue"]
+resource_name = "enemy_died"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h23oh"]
 _data = {
 "RESET": SubResource("Animation_o1e0l"),
+"enemy_damaged": SubResource("Animation_mm33b"),
+"enemy_died": SubResource("Animation_ju7ue"),
 "fade_in": SubResource("Animation_q6o21"),
-"fade_out": SubResource("Animation_xdxko")
+"fade_out": SubResource("Animation_xdxko"),
+"player_damaged": SubResource("Animation_owrqy")
 }
 
 [node name="battle_scene" type="Control"]
@@ -106,9 +326,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_vhiso")
+enemy = ExtResource("2_vncvw")
 metadata/_edit_group_ = true
 
 [node name="background" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,7 +339,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ep3xs")
 
-[node name="EnemyContainer" type="HBoxContainer" parent="background"]
+[node name="EnemyContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03125
@@ -128,17 +351,17 @@ offset_bottom = 32.0
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="background/EnemyContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EnemyContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="EnemyPanel" type="Panel" parent="background/EnemyContainer/VBoxContainer"]
+[node name="EnemyPanel" type="Panel" parent="EnemyContainer/VBoxContainer"]
 custom_minimum_size = Vector2(130, 35)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 
-[node name="EnemyData" type="VBoxContainer" parent="background/EnemyContainer/VBoxContainer/EnemyPanel"]
+[node name="EnemyData" type="VBoxContainer" parent="EnemyContainer/VBoxContainer/EnemyPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,7 +376,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="EnemyName" type="Label" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
+[node name="EnemyName" type="Label" parent="EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 0
@@ -161,7 +384,7 @@ theme_override_fonts/font = ExtResource("3_10k4m")
 text = "Alosaurus"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer/VBoxContainer/EnemyPanel/EnemyData"]
 custom_minimum_size = Vector2(100, 11)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -172,7 +395,7 @@ step = 0.1
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="background/EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar"]
+[node name="Label" type="Label" parent="EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,7 +410,7 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Enemy" type="TextureRect" parent="background/EnemyContainer"]
+[node name="Enemy" type="TextureRect" parent="EnemyContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -195,7 +418,8 @@ size_flags_vertical = 4
 texture = ExtResource("3_leajk")
 flip_h = true
 
-[node name="PlayerContainer" type="VBoxContainer" parent="background"]
+[node name="PlayerContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -205,26 +429,26 @@ offset_top = -108.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="background/PlayerContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Player" type="TextureRect" parent="background/PlayerContainer/HBoxContainer"]
+[node name="Player" type="TextureRect" parent="PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
 texture = ExtResource("3_leajk")
 
-[node name="PlayerPanel" type="Panel" parent="background/PlayerContainer/HBoxContainer"]
+[node name="PlayerPanel" type="Panel" parent="PlayerContainer/HBoxContainer"]
 custom_minimum_size = Vector2(130, 35)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 
-[node name="PlayerData" type="VBoxContainer" parent="background/PlayerContainer/HBoxContainer/PlayerPanel"]
+[node name="PlayerData" type="VBoxContainer" parent="PlayerContainer/HBoxContainer/PlayerPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -239,7 +463,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="PlayerName" type="Label" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
+[node name="PlayerName" type="Label" parent="PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 0
@@ -247,7 +471,7 @@ theme_override_fonts/font = ExtResource("3_10k4m")
 text = "Alosaurus"
 horizontal_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
+[node name="ProgressBar" type="ProgressBar" parent="PlayerContainer/HBoxContainer/PlayerPanel/PlayerData"]
 custom_minimum_size = Vector2(100, 11)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -258,7 +482,7 @@ step = 0.1
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="background/PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar"]
+[node name="Label" type="Label" parent="PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,13 +497,13 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActionsPanel" type="Panel" parent="background/PlayerContainer"]
+[node name="ActionsPanel" type="Panel" parent="PlayerContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_a2r3i")
 
-[node name="Actions" type="HBoxContainer" parent="background/PlayerContainer/ActionsPanel"]
+[node name="Actions" type="HBoxContainer" parent="PlayerContainer/ActionsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,7 +517,7 @@ grow_vertical = 2
 theme_override_constants/separation = 3
 alignment = 1
 
-[node name="Attack_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+[node name="Attack_Button" type="Button" parent="PlayerContainer/ActionsPanel/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -306,7 +530,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
 text = "Attack"
 
-[node name="Defend_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+[node name="Defend_Button" type="Button" parent="PlayerContainer/ActionsPanel/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -319,7 +543,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
 text = "Defend"
 
-[node name="Run_Button" type="Button" parent="background/PlayerContainer/ActionsPanel/Actions"]
+[node name="Run_Button" type="Button" parent="PlayerContainer/ActionsPanel/Actions"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -332,8 +556,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_31m8g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_urwlj")
 text = "Run"
 
-[node name="TextBox" type="Panel" parent="background"]
-visible = false
+[node name="TextBox" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -344,7 +567,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hi6mn")
 
-[node name="Label" type="Label" parent="background/TextBox"]
+[node name="Label" type="Label" parent="TextBox"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,7 +582,7 @@ theme_override_fonts/font = ExtResource("3_10k4m")
 text = "A wild Alo appears!!!"
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="background/TextBox"]
+[node name="Label2" type="Label" parent="TextBox"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -388,7 +611,7 @@ libraries = {
 "": SubResource("AnimationLibrary_h23oh")
 }
 
-[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Attack_Button" to="." method="_on_fight_button_pressed"]
-[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Defend_Button" to="." method="_on_fight_button_pressed"]
-[connection signal="pressed" from="background/PlayerContainer/ActionsPanel/Actions/Run_Button" to="." method="_on_run_button_pressed"]
+[connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Attack_Button" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Defend_Button" to="." method="_on_defend_button_pressed"]
+[connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Run_Button" to="." method="_on_run_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

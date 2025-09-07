@@ -7,11 +7,21 @@ signal textbox_closed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	textbox.hide()
+	$background/PlayerContainer.hide()
 	visible = false
 	$background.visible = false
 	EventHandler.connect("battle_started", init)
 	
+	await textbox_closed 
+	$background/PlayerContainer.show()
+
+func set_health(progress_bar, health, max_health):
+	progress_bar.value = health
+	progress_bar.max_value = max_health
+	progress_bar.get_node("Label").text = "HP:%d/%d" % [health, max_health]
+
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -36,7 +46,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		#$background/Panel/Fight_Button.grab_focus()
 
 func _on_run_button_pressed() -> void:
-	print("hello")
+	display_text("Got away safely")
+	await textbox_closed
+	
 	get_tree().paused = false
 	visible = false
 	$background.visible = false

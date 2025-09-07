@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://skripts/global.gd"
 EventHandler="*res://skripts/event_handler.gd"
+State="*res://skripts/state.gd"
 
 [display]
 

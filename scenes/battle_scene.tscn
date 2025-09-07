@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://flyboecmmxc0"]
+[gd_scene load_steps=19 format=3 uid="uid://flyboecmmxc0"]
 
 [ext_resource type="Script" path="res://skripts/battle_scene.gd" id="1_vhiso"]
 [ext_resource type="Texture2D" uid="uid://i3wbor5i4typ" path="res://art/objects/rock_in_water_05.png" id="2_ep3xs"]
@@ -290,10 +290,27 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ju7ue"]
+resource_name = "enemy_died"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h23oh"]
 _data = {
 "RESET": SubResource("Animation_o1e0l"),
 "enemy_damaged": SubResource("Animation_mm33b"),
+"enemy_died": SubResource("Animation_ju7ue"),
 "fade_in": SubResource("Animation_q6o21"),
 "fade_out": SubResource("Animation_xdxko"),
 "player_damaged": SubResource("Animation_owrqy")
@@ -595,6 +612,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Attack_Button" to="." method="_on_attack_button_pressed"]
-[connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Defend_Button" to="." method="_on_fight_button_pressed"]
+[connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Defend_Button" to="." method="_on_defend_button_pressed"]
 [connection signal="pressed" from="PlayerContainer/ActionsPanel/Actions/Run_Button" to="." method="_on_run_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

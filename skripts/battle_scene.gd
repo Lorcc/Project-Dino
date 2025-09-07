@@ -46,7 +46,14 @@ func init(character_name, lvl):
 	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 
 
 func enemy_turn():
-	pass
+	display_text("The %s launches at your alosaurus fiercely!" % enemy.name)
+	await textbox_closed
+	
+	current_player_health = max(0, current_player_health - enemy.damage)
+	set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
+	
+	$AnimationPlayer.play("player_damaged")
+	await "animation_finished"
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":

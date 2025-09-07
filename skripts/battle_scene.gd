@@ -12,8 +12,6 @@ var is_defending = false
 #TODO 	change enemy selection
 #TODO 	change player name 
 #TODO 	add Level
-#TODO 	make it so the user can not skip through animation by clicking: 
-		#bug modulate of enemy is transparent
 
 func _ready() -> void:	
 	visible = false
@@ -44,6 +42,7 @@ func init(character_name, lvl):
 	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
+	$EnemyContainer/Enemy.modulate = "ffffff"
 	
 	current_player_health = State.current_health
 	current_enemy_health = enemy.health
@@ -52,6 +51,7 @@ func init(character_name, lvl):
 	$AnimationPlayer.play("fade_in")
 	get_tree().paused = true
 	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 
+	#$AnimationPlayer.play("text_blinking")
 
 func enemy_turn():
 	display_text("The %s launches at your alosaurus fiercely!" % enemy.name)
@@ -66,7 +66,7 @@ func enemy_turn():
 		set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
 		
 		$AnimationPlayer.play("player_damaged")
-		await "animation_finished"
+		await $AnimationPlayer.animation_finished
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -75,6 +75,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		
 
 func _on_run_button_pressed() -> void:
+	State.current_health = current_player_health
 	display_text("Got away safely")
 	await textbox_closed
 	
@@ -90,7 +91,7 @@ func _on_attack_button_pressed() -> void:
 	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, current_enemy_health, enemy.health)
 	
 	$AnimationPlayer.play("enemy_damaged")
-	await "animation_finished"
+	await $AnimationPlayer.animation_finished
 	
 	if current_enemy_health == 0:
 		State.current_health = current_player_health
@@ -98,7 +99,7 @@ func _on_attack_button_pressed() -> void:
 		await textbox_closed
 		
 		$AnimationPlayer.play("enemy_died")
-		await "animation_finished"
+		await $AnimationPlayer.animation_finished
 		
 		get_tree().paused = false
 		visible = false

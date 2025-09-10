@@ -49,6 +49,7 @@ func init(character_name, lvl):
 	current_enemy_health = enemy.health
 	
 	visible = true
+	$ColorRect.visible = true
 	$AnimationPlayer.play("fade_in")
 	get_tree().paused = true
 	display_text("A wild %s lvl %s appears" %[character_name, lvl]) 

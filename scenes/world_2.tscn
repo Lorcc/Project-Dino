@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvj6ueacyuxqm"]
+[gd_scene load_steps=7 format=4 uid="uid://cvj6ueacyuxqm"]
 
 [ext_resource type="TileSet" uid="uid://b7qiejni0qax6" path="res://scenes/tileset.tres" id="1_c6h87"]
 [ext_resource type="PackedScene" uid="uid://cpi6clgh8ey2x" path="res://scenes/camera_2d.tscn" id="2_2vt6m"]
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="2_javd7"]
 [ext_resource type="PackedScene" uid="uid://b76awvvudq1s3" path="res://scenes/level_changer.tscn" id="3_x5lum"]
+[ext_resource type="Texture2D" uid="uid://br13e3bp3wrnu" path="res://art/objects/white_flower.png" id="5_4bgia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtbj7"]
 
@@ -45,5 +46,17 @@ player_future_position = Vector2(128, 248)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChanger"]
 scale = Vector2(3.36, 1)
 shape = SubResource("RectangleShape2D_rtbj7")
+
+[node name="WhiteFlower" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(346, 86)
+texture = ExtResource("5_4bgia")
+offset = Vector2(0, 10)
+
+[node name="WhiteFlower2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(368, 89)
+texture = ExtResource("5_4bgia")
+offset = Vector2(0, 10)
 
 [editable path="Camera2D"]

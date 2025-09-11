@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://da47eof1ehm05" path="res://scenes/player.tscn" id="4_2h0x8"]
 [ext_resource type="Script" path="res://skripts/enemy.gd" id="5_5eryv"]
 [ext_resource type="Texture2D" uid="uid://dng3sf5nh1qks" path="res://art/dino/Dino-test.png" id="6_o3mb4"]
-[ext_resource type="PackedScene" uid="uid://flyboecmmxc0" path="res://scenes/battle_scene_old.tscn" id="7_vb4nl"]
+[ext_resource type="PackedScene" uid="uid://flyboecmmxc0" path="res://scenes/battle_scene.tscn" id="7_fm7kh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puwqa"]
 
@@ -74,8 +74,7 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 2
 
-[node name="battle_scene" parent="CanvasLayer" instance=ExtResource("7_vb4nl")]
-visible = false
+[node name="battle_scene" parent="CanvasLayer" instance=ExtResource("7_fm7kh")]
 
 [connection signal="body_entered" from="enemy" to="enemy" method="_on_body_entered"]
 

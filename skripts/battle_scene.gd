@@ -1,5 +1,7 @@
 extends Control
 
+const DEBUG = true
+
 signal textbox_closed
 
 @export var enemy : Resource = null
@@ -11,6 +13,7 @@ var is_defending = false
 #TODO 	change enemy selection
 #TODO 	change player name 
 #TODO 	add Level
+#TODO 	Player dino dying
 
 func _ready() -> void:
 	visible = false
@@ -40,6 +43,8 @@ func display_text(text):
 
 
 func init(character_name, lvl):
+	if not DEBUG:
+		$AudioStreamPlayer.play(0.0)
 	set_health($EnemyContainer/VBoxContainer/EnemyPanel/EnemyData/ProgressBar, enemy.health, enemy.health)
 	set_health($PlayerContainer/HBoxContainer/PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health)
 	$EnemyContainer/Enemy.texture = enemy.texture
